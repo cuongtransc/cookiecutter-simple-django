@@ -293,7 +293,7 @@ else:
 ########## END CELERY
 
 
-# Location of root django.contrib.admin URL, use {% url 'admin:index' %}
+# Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
