@@ -9,14 +9,17 @@ services:
         #restart: always
         build: .
         image: {{cookiecutter.project_slug}}:{{cookiecutter.version}}
+        depends_on:
+            - mysql
         networks:
             - nginx-back
         expose:
             - "8000"
         ports:
-            - "0.0.0.0:81:8000"
+            - "0.0.0.0:8000:8000"
         volumes:
             - .:/usr/src/app
+        hostname: {{cookiecutter.project_slug}}
         env_file: docker-env
         environment:
             DJANGO_SETTINGS_MODULE: 'config.settings.local'
@@ -63,6 +66,8 @@ services:
 
     nginx:
         image: nginx:1.11.6
+        depends_on:
+            - {{cookiecutter.project_slug}}
         networks:
             - nginx-back
         ports:
@@ -70,6 +75,7 @@ services:
         volumes:
             - ./nginx-config/:/etc/nginx/conf.d/
         command: /bin/bash -c "nginx -g 'daemon off;'"
+        hostname: nginx
         #restart: always
         logging:
             driver: "json-file"
