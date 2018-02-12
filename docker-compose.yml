@@ -5,10 +5,10 @@
 version: "3"
 
 services:
-    jokes:
+    {{cookiecutter.project_slug}}:
         #restart: always
         build: .
-        image: cuongnb14/jokes:0.1
+        image: {{cookiecutter.project_slug}}:{{cookiecutter.version}}
         networks:
             - nginx-back
         expose:

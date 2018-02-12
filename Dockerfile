@@ -1,10 +1,10 @@
-# Author: Cuong Nguyen
+# Author: {{cookiecutter.author_name}}
 #
-# Build: docker build -t cuongnb14/jokes:0.1 .
+# Build: docker build -t {{cookiecutter.project_slug}}:{{cookiecutter.project_slug}} .
 #
 
 FROM ubuntu:16.04
-MAINTAINER Cuong Nguyen "cuongnb14@gmail.com"
+MAINTAINER {{cookiecutter.author_name}} "{{cookiecutter.email}}"
 
 
 RUN apt-get update -qq
