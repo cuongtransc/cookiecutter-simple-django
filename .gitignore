@@ -303,7 +303,7 @@ pip-selfcheck.json
 
 .idea/
 
-jokes/media/
+{{cookiecutter.project_slug}}/media/
 
 
 mysql-data/

@@ -3,7 +3,7 @@ DB_HOST=mysql
 DB_PORT=3306
 DB_USER=root
 DB_PASS=dev@123
-DB_NAME=jokes
+DB_NAME={{cookiecutter.project_slug}}
 
 # Domain name, used by caddy
 DOMAIN_NAME=example.com

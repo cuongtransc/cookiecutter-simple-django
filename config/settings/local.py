@@ -1,5 +1,5 @@
 """
-Local settings for Jokes project.
+Local settings for {{cookiecutter.project_name}} project.
 
 - Run in Debug mode
 

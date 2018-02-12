@@ -1,5 +1,5 @@
 """
-Test settings for Jokes project.
+Test settings for {{cookiecutter.project_name}} project.
 
 - Used to run tests fast on the continuous integration server and locally
 """

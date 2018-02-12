@@ -1,4 +1,4 @@
-Jokes
+{{cookiecutter.project_name}}
 =====
 
 A short description of the project.
@@ -66,8 +66,8 @@ To run a celery worker:
 
 .. code-block:: bash
 
-    cd jokes
-    celery -A jokes.taskapp worker -l info
+    cd {{cookiecutter.project_slug}}
+    celery -A {{cookiecutter.project_slug}}.taskapp worker -l info
 
 Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 

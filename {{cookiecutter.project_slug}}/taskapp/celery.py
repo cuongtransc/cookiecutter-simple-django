@@ -10,11 +10,11 @@ if not settings.configured:
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')  # pragma: no cover
 
 
-app = Celery('jokes')
+app = Celery('{{cookiecutter.project_slug}}')
 
 
 class CeleryConfig(AppConfig):
-    name = 'jokes.taskapp'
+    name = '{{cookiecutter.project_slug}}.taskapp'
     verbose_name = 'Celery Config'
 
     def ready(self):

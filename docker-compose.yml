@@ -51,7 +51,7 @@ services:
             - ./mysql-data/:/var/lib/mysql/
         environment:
             MYSQL_ROOT_PASSWORD: dev@123
-            MYSQL_DATABASE: jokes
+            MYSQL_DATABASE: {{cookiecutter.project_slug}}
         ports:
             - "0.0.0.0:3311:3306"
         hostname: mysql

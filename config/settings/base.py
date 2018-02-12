@@ -1,5 +1,5 @@
 """
-Base settings for Jokes project.
+Base settings for {{cookiecutter.project_name}} project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # (jokes/config/settings/base.py - 3 = jokes/)
-APPS_DIR = ROOT_DIR.path('jokes')
+ROOT_DIR = environ.Path(__file__) - 3  # ({{cookiecutter.project_slug}}/config/settings/base.py - 3 = {{cookiecutter.project_slug}}/)
+APPS_DIR = ROOT_DIR.path('{{cookiecutter.project_slug}}')
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
@@ -56,7 +56,7 @@ THIRD_PARTY_APPS = [
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
-    'jokes.users.apps.UsersConfig',
+    '{{cookiecutter.project_slug}}.users.apps.UsersConfig',
     # Your stuff: custom apps go here
 ]
 
@@ -78,7 +78,7 @@ MIDDLEWARE = [
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'jokes.contrib.sites.migrations'
+    'sites': '{{cookiecutter.project_slug}}.contrib.sites.migrations'
 }
 
 # DEBUG
@@ -115,17 +115,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jokes',
-        'USER': 'root',
-        'PASSWORD': 'dev@123',
-        'HOST': '127.0.0.1',
-        'PORT': '3311',
-    }
-}
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('DB_NAME', default='jokes'),
+        'NAME': env('DB_NAME', default='{{cookiecutter.project_slug}}'),
         'USER': env('DB_USER', default='root'),
         'PASSWORD': env('DB_PASS', default='dev@123'),
         'HOST': env('DB_HOST', default='127.0.0.1'),
@@ -279,8 +269,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-ACCOUNT_ADAPTER = 'jokes.users.adapters.AccountAdapter'
-SOCIALACCOUNT_ADAPTER = 'jokes.users.adapters.SocialAccountAdapter'
+ACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter'
 
 # Custom user app defaults
 # Select the correct user model
@@ -292,7 +282,7 @@ LOGIN_URL = 'account_login'
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 ########## CELERY
-INSTALLED_APPS += ['jokes.taskapp.celery.CeleryConfig']
+INSTALLED_APPS += ['{{cookiecutter.project_slug}}.taskapp.celery.CeleryConfig']
 
 BROKER_URL = env('CELERY_BROKER_URL', default='redis://127.0.0.1:6379/0')
 if BROKER_URL == 'django://':

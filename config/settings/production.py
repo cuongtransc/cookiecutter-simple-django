@@ -1,5 +1,5 @@
 """
-Production settings for Jokes project.
+Production settings for {{cookiecutter.project_name}} project.
 
 
 - Use Amazon's S3 for storing static files and uploaded media
@@ -102,8 +102,8 @@ INSTALLED_APPS = ['collectfast', ] + INSTALLED_APPS
 # EMAIL
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
-                         default='Jokes <noreply@example.com>')
-EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[Jokes]')
+                         default='{{cookiecutter.project_name}} <noreply@example.com>')
+EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[{{cookiecutter.project_name}}]')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
 # Anymail with Mailgun
