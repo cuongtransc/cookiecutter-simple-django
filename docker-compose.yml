@@ -1,0 +1,82 @@
+#
+# syntax: https://docs.docker.com/compose/yml/
+#
+
+version: "3"
+
+services:
+    jokes:
+        #restart: always
+        build: .
+        image: cuongnb14/jokes:0.1
+        networks:
+            - nginx-back
+        expose:
+            - "8000"
+        ports:
+            - "0.0.0.0:81:8000"
+        volumes:
+            - .:/usr/src/app
+        env_file: docker-env
+        environment:
+            DJANGO_SETTINGS_MODULE: 'config.settings.local'
+        # command: /usr/local/bin/gunicorn config.wsgi:application -w 2 -b :8000
+        # command: python3 manage.py runserver 0.0.0.0:8000
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+    redis:
+        image: redis
+        networks:
+            - nginx-back
+        ports:
+            - "127.0.0.1:6378:6379"
+        hostname: redis
+        # restart: always
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+
+    mysql:
+        image: mysql:5.7
+        networks:
+            - nginx-back
+        volumes:
+            - ./mysql-data/:/var/lib/mysql/
+        environment:
+            MYSQL_ROOT_PASSWORD: dev@123
+            MYSQL_DATABASE: jokes
+        ports:
+            - "0.0.0.0:3311:3306"
+        hostname: mysql
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+    nginx:
+        image: nginx:1.11.6
+        networks:
+            - nginx-back
+        ports:
+            - "0.0.0.0:85:80"
+        volumes:
+            - ./nginx-config/:/etc/nginx/conf.d/
+        command: /bin/bash -c "nginx -g 'daemon off;'"
+        #restart: always
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100M"
+                max-file: "3"
+
+networks:
+    nginx-back:
+      #external: true
