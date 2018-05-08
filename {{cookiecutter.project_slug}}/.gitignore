@@ -310,3 +310,6 @@ mysql-data/
 /test/
 last_commit_id.txt
 {{cookiecutter.project_slug}}/static/gentelella/
+
+/logs/*
+!**.gitkeep
