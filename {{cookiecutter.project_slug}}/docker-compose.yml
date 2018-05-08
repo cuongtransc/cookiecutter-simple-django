@@ -75,6 +75,7 @@ services:
             - "0.0.0.0:85:80"
         volumes:
             - ./nginx-config/:/etc/nginx/conf.d/
+            -  ./staticfiles/:/{{cookiecutter.project_slug}}/static/
         command: /bin/bash -c "nginx -g 'daemon off;'"
         hostname: nginx
         #restart: always
