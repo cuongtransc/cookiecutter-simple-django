@@ -21,3 +21,6 @@ d-create-superuser:
 
 gentelella:
 	tar -xzvf gentelella.tar.gz -C {{cookiecutter.project_slug}}/static/ && rm {{cookiecutter.project_slug}}/static/gentelella/*
+
+d-collectstatic:
+	docker-compose exec {{cookiecutter.project_slug}} python3 manage.py collectstatic --noinput
