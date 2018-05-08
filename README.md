@@ -39,4 +39,9 @@ Step 4: Migrate database
 
 `make d-migrate`
 
+Step 5: 
 Access: http://localhost:85. Account: admin/admin. You can remove nginx basic auth in nginx-config
+
+If you want use gentelella admin template, run:
+
+`make gentelella`

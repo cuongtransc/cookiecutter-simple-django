@@ -18,3 +18,6 @@ d-makemigrations:
 
 d-create-superuser:
 	docker-compose exec {{cookiecutter.project_slug}} python3 manage.py createsuperuser
+
+gentelella:
+	tar -xzvf gentelella.tar.gz -C {{cookiecutter.project_slug}}/static/ && rm {{cookiecutter.project_slug}}/static/gentelella/*
