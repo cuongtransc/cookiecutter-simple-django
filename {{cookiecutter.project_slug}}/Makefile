@@ -11,10 +11,10 @@ create-superuser:
 	python3 manage.py createsuperuser
 
 d-migrate:
-	dcompose exec {{cookiecutter.project_slug}} python3 manage.py migrate
+	docker-compose exec {{cookiecutter.project_slug}} python3 manage.py migrate
 
 d-makemigrations:
-	dcompose exec {{cookiecutter.project_slug}} python3 manage.py makemigrations
+	docker-compose exec {{cookiecutter.project_slug}} python3 manage.py makemigrations
 
 d-create-superuser:
-	dcompose exec {{cookiecutter.project_slug}} python3 manage.py createsuperuser
+	docker-compose exec {{cookiecutter.project_slug}} python3 manage.py createsuperuser

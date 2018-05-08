@@ -31,10 +31,12 @@ Step 2: Install requirements
 
 `pip3 install -r requirements.txt`
 
-Step 3: Build docker images
-
-`docker-compose build`
-
-Step 4: Run with docker
+Step 3: Run
 
 `docker-compose up -d`
+
+Step 4: Migrate database
+
+`make d-migrate`
+
+Access: http://localhost:85. Account: admin/admin. You can remove nginx basic auth in nginx-config
