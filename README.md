@@ -27,7 +27,7 @@ Step 1: Init project
 
 `cookiecutter https://github.com/cuongnb14/cookiecutter-simple-django.git`
 
-Step 2: Install requirements
+Step 2: Install requirements (for develop without docker)
 
 `pip3 install -r requirements.txt`
 
@@ -43,7 +43,7 @@ Step 5: collectstatic file (run whenever update static files)
 
 `make d-collectstatic`
  
-Access: http://localhost:85. Account: admin/admin. You can remove nginx basic auth in nginx-config
+Access: http://localhost:85. Basic Auth Account: admin/admin. You can remove nginx basic auth in nginx-config
 
 If you want use gentelella admin template, run:
 
