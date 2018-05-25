@@ -307,3 +307,5 @@ pip-selfcheck.json
 
 
 mysql-data/
+
+!**.gitkeep

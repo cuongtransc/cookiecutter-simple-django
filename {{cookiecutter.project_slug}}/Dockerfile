@@ -1,6 +1,6 @@
 # Author: {{cookiecutter.author_name}}
 #
-# Build: docker build -t {{cookiecutter.project_slug}}:{{cookiecutter.project_slug}} .
+# Build: docker build -t {{cookiecutter.project_slug}}:{{cookiecutter.version}} .
 #
 
 FROM ubuntu:16.04

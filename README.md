@@ -13,6 +13,7 @@ This cookie cutter is a very simple boilerplate for starting a website using Dja
 - Use honcho
 - Use MySQL for database, Nginx proxy
 - Integrate gentelella admin template
+- Integrate fabric for CI/CD
 
 
 **Used packages:**
