@@ -12,6 +12,7 @@ This cookie cutter is a very simple boilerplate for starting a website using Dja
 - Docker support using docker-compose
 - Use honcho
 - Use MySQL for database, Nginx proxy
+- Integrate gentelella admin template
 
 
 **Used packages:**
